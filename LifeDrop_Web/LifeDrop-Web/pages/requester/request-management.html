@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LifeDrop Core</title>
+<link href="../../css/theme.css" rel="stylesheet"/>
+<link href="../../css/style.css" rel="stylesheet"/>
+<link href="../../css/theme-controls.css" rel="stylesheet"/>
+<link href="../../css/dashboard.css" rel="stylesheet"/>
+<link href="../../css/utilities.css" rel="stylesheet"/>
+<link href="../../css/responsive.css" rel="stylesheet"/>
+</head>
+<body class="light dashboard-body" data-page="request-management">
+<div class="dash-app">
+<aside class="dash-sidebar">
+<div class="dash-brand dash-brand--core">
+    <div class="brand-logo-box"><img src="../../assets/logo.png" alt="LifeDrop Logo" /></div>
+    <div class="dash-stack-2 dash-stack-tight">
+      <div class="dash-brand__title">LifeDrop Core</div>
+      <div class="dash-brand__subtitle">Blood Management</div>
+    </div>
+  </div>
+<nav class="dash-nav"></nav>
+<div class="dash-sidebar__footer"><a class="dash-nav__item" href="#" id="sidebar-logout-btn">Logout</a></div>
+</aside>
+<main class="dash-main">
+<header class="dash-topbar"><div class="dash-topbar__group"><div class="dash-link-alert">Live Updates</div></div><div class="dash-topbar__group"><div class="dash-user-chip">Admin</div></div></header>
+<div class="dash-content">
+
+<section class="dash-page-header">
+  <div class="dash-row-between">
+    <div class="dash-stack-2">
+      <h1 class="dash-title-xl">Request Management</h1>
+    </div>
+  </div>
+</section>
+
+<!-- Collapsible inline new-request form -->
+<details class="dash-card dash-disclosure" id="rm-new-request-panel">
+  <summary class="dash-disclosure__summary">
+    <span class="dash-disclosure__title">Create Blood Donation Request</span>
+    <span class="dash-disclosure__hint">Select a governorate, then pick districts</span>
+  </summary>
+  <div class="dash-card__body dash-disclosure__body">
+    <form class="dash-stack-5" id="rm-new-request-form">
+      <div class="dash-form-grid dash-form-grid--2">
+        <div class="dash-field">
+          <label class="dash-label" for="rm-blood-type">Blood Type</label>
+          <select class="dash-input" id="rm-blood-type" data-role="blood-type">
+            <option>O+</option><option>O-</option><option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option><option>AB+</option><option>AB-</option>
+          </select>
+        </div>
+        <div class="dash-field">
+          <label class="dash-label" for="rm-urgency">Urgency</label>
+          <select class="dash-input" id="rm-urgency" data-role="urgency">
+            <option>Normal</option><option>Urgent</option><option>Critical</option>
+          </select>
+        </div>
+        <div class="dash-field">
+          <label class="dash-label" for="rm-quota">Units Needed</label>
+          <input class="dash-input" id="rm-quota" data-role="quota" min="1" required type="number" value="1"/>
+        </div>
+        <div class="dash-field">
+          <label class="dash-label" for="rm-governorate">Governorate</label>
+          <select class="dash-input" id="rm-governorate" data-role="governorate">
+            <option value="">Loading...</option>
+          </select>
+        </div>
+        <div class="dash-field dash-grid-span-full">
+          <label class="dash-label" for="rm-districts">Districts <span class="dash-muted">(hold Ctrl/Cmd to select multiple)</span></label>
+          <select class="dash-input dash-input--multi" id="rm-districts" data-role="districts" multiple disabled>
+          </select>
+        </div>
+      </div>
+      <div class="dash-row-between">
+        <span class="dash-muted" data-role="status" id="rm-form-status">Ready to submit</span>
+        <button class="dash-btn dash-btn--primary" data-loading-text="Saving..." type="submit">Save Request</button>
+      </div>
+    </form>
+  </div>
+</details>
+
+<section class="dash-card" id="requests-table-wrap">
+  <div class="dash-table-wrap">
+    <table class="dash-table">
+      <thead><tr><th>Request ID</th><th>Patient / Unit</th><th>Blood Type</th><th>Priority</th><th>Donor Progress</th><th>Created</th><th>Actions</th></tr></thead>
+      <tbody id="requests-table-body"></tbody>
+    </table>
+  </div>
+</section>
+
+</div></main></div>
+<script src="../../js/app.js"></script>
+<script src="../../js/api.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js"></script>
+<script src="../../js/realtime.js"></script>
+<script src="../../js/pages.js"></script>
+<script>
+  (function () {
+    var user = window.LifeDropApi && window.LifeDropApi.getCurrentUser();
+    if (!user) {
+      window.location.replace('../../pages/auth/login.html');
+      return;
+    }
+    if (user.role === 'SystemAdmin') {
+      window.location.replace('../system-admin/dashboard.html');
+      return;
+    }
+    if (user.role !== 'HospitalAdmin' && user.role !== 'HospitalEmployee') {
+      window.location.replace('../../pages/auth/login.html');
+      return;
+    }
+    // Logout is wired by renderSidebar() in pages.js
+  })();
+</script>
+</body>
+</html>
+
+

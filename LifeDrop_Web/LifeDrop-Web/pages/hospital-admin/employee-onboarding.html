@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Employees | LifeDrop Core</title>
+<link href="../../css/theme.css" rel="stylesheet"/>
+<link href="../../css/style.css" rel="stylesheet"/>
+<link href="../../css/theme-controls.css" rel="stylesheet"/>
+<link href="../../css/dashboard.css" rel="stylesheet"/>
+<link href="../../css/utilities.css" rel="stylesheet"/>
+<link href="../../css/responsive.css" rel="stylesheet"/>
+</head>
+<body class="light dashboard-body dash-page-light" data-page="employee-onboarding">
+<div class="dash-app">
+<aside class="dash-sidebar dash-sidebar--admin">
+  <div class="dash-brand-card">
+    <div class="brand-logo-box"><img src="../../assets/logo.png" alt="LifeDrop Logo" /></div>
+    <div>
+      <div class="dash-brand__title">LifeDrop Core</div>
+      <div class="dash-brand-card__eyebrow">Admin Portal</div>
+    </div>
+  </div>
+
+  <nav class="dash-nav">
+    <a class="dash-nav__item dash-nav__item--admin" href="../requester/dashboard-overview.html">Dashboard</a>
+    <a class="dash-nav__item dash-nav__item--admin" href="../requester/request-management.html">Request Management</a>
+    <a class="dash-nav__item dash-nav__item--admin is-active" href="employee-onboarding.html">Employees</a>
+  </nav>
+
+  <div class="dash-session-card dash-session-card--footer">
+    <a class="dash-nav__item" href="#" id="eo-logout-btn">Logout</a>
+  </div>
+</aside>
+
+<main class="dash-main">
+<header class="dash-topbar">
+  <div class="dash-topbar__group"><div class="dash-link-alert">Admin Console</div></div>
+  <div class="dash-topbar__group"><div class="dash-user-chip">HospitalAdmin</div></div>
+</header>
+<div class="dash-content">
+  <section class="dash-page-header">
+    <div class="dash-row-between">
+      <div class="dash-stack-2">
+        <h1 class="dash-title-hero">Employees</h1>
+      </div>
+    </div>
+  </section>
+
+  <details class="dash-card dash-disclosure" id="add-employee-panel">
+    <summary class="dash-disclosure__summary">
+      <span class="dash-disclosure__title">Add Employee</span>
+    </summary>
+    <div class="dash-card__body dash-disclosure__body">
+      <form data-api-form id="staff-form" class="dash-stack-6">
+        <section class="dash-form-section">
+          <div class="dash-form-grid dash-form-grid--2">
+            <div class="dash-field">
+              <label class="dash-label" for="staff-full-name">Full Name</label>
+              <input class="dash-input" id="staff-full-name" required type="text"/>
+            </div>
+            <div class="dash-field">
+              <label class="dash-label" for="staff-email">Email Address</label>
+              <input class="dash-input" id="staff-email" required type="email"/>
+            </div>
+            <div class="dash-field is-hidden" id="staff-phone-field">
+              <label class="dash-label" for="staff-phone">Phone Number</label>
+              <input class="dash-input" id="staff-phone" type="tel"/>
+            </div>
+            <div class="dash-field">
+              <label class="dash-label" for="staff-password">Password</label>
+              <input class="dash-input" id="staff-password" required type="password"/>
+            </div>
+            <div class="dash-field">
+              <label class="dash-label" for="staff-confirm-password">Confirm Password</label>
+              <input class="dash-input" id="staff-confirm-password" required type="password"/>
+            </div>
+          </div>
+        </section>
+        <div class="dash-actions">
+          <button class="dash-btn dash-btn--primary" data-loading-text="Registering..." type="submit">
+            Save &amp; Register
+          </button>
+        </div>
+      </form>
+    </div>
+  </details>
+
+  <section class="dash-card">
+    <div class="dash-card__body">
+      <div class="dash-row-between dash-mb-16">
+        <div>
+          <h2 class="dash-title-md">Employee List</h2>
+        </div>
+      </div>
+      <div class="dash-table-wrap">
+        <table class="dash-table">
+          <thead>
+            <tr><th>Name</th><th>Email</th><th id="staff-phone-header">Phone</th><th>Role</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="staff-table-body">
+            <tr><td colspan="6" class="dash-muted dash-table-message">Loading employees...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<script src="../../js/app.js"></script>
+<script src="../../js/api.js"></script>
+<script src="../../js/pages.js"></script>
+<script>
+  // Auth guard â€” HospitalAdmin only
+  (function () {
+    var user = window.LifeDropApi && window.LifeDropApi.getCurrentUser();
+    if (!user || user.role !== 'HospitalAdmin') {
+      window.location.replace('../auth/login.html');
+      return;
+    }
+  })();
+  document.getElementById('eo-logout-btn').addEventListener('click', function (e) {
+    e.preventDefault();
+    LifeDropApi.clearTokens();
+    window.location.href = '../auth/login.html';
+  });
+</script>
+</body>
+</html>
+
+
+

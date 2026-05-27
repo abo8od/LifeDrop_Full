@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "143122588238",
+    "project_id": "lifedrop-b7ca6",
+    "storage_bucket": "lifedrop-b7ca6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143122588238:android:350295a4aff140e61d991f",
+        "android_client_info": {
+          "package_name": "com.example.donor_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpHZg5XiRwUGHhxzGxNLm2ACSUgPOQNis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143122588238:android:dd715af98beb64d91d991f",
+        "android_client_info": {
+          "package_name": "com.example.donor_app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpHZg5XiRwUGHhxzGxNLm2ACSUgPOQNis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

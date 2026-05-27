@@ -1,0 +1,78 @@
+# .NET Core / Build Artifacts
+**/bin/
+**/obj/
+**/packages/
+**/publish/
+**/out/
+**/artifacts/
+**/TestResults/
+**/*bin\\Debug*
+**/*obj\\Debug*
+
+# Environments / Secrets (do not commit machine-local secrets)
+.env
+.env.*
+secrets.json
+**/appsettings.Local.json
+**/appsettings.*.local.json
+**/appsettings.Secrets.json
+
+# Local Databases
+*.db
+*.sqlite
+*.db-shm
+*.db-wal
+
+# IDE / Editors
+.vs/
+.vscode/
+.idea/
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.swp
+*.core
+*.orig
+*_ReSharper.Caches/
+riderModule.iml
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs / Coverage
+*.log
+*.coverage
+*.coveragexml
+coverage/
+
+# AI / Agent Files (Do not push)
+.agents/
+AGENTS.md
+.cursor/
+.cursorrules
+opencode.json
+.cline/
+.cody/
+
+# Local planning/task notes
+tasks.md
+task.md
+docs/prd.md
+
+# Local git metadata backups
+.git_backup_*/
+
+*.py
+
+*.patch
+
+*.md
+*.lscache

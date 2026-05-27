@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Dashboard | LifeDrop Core</title>
+
+<link href="../../css/theme.css" rel="stylesheet"/>
+<link href="../../css/style.css" rel="stylesheet"/>
+<link href="../../css/theme-controls.css" rel="stylesheet"/>
+<link href="../../css/dashboard.css" rel="stylesheet"/>
+<link href="../../css/utilities.css" rel="stylesheet"/>
+<link href="../../css/responsive.css" rel="stylesheet"/>
+</head>
+
+<body class="light dashboard-body" data-page="system-admin-dashboard">
+<div class="dash-app dash-app--admin">
+
+<aside class="dash-sidebar dash-sidebar--admin">
+  <div class="dash-brand-card">
+    <div class="brand-logo-box"><img src="../../assets/logo.png" alt="LifeDrop Logo" /></div>
+    <div>
+      <div class="dash-brand__title">LifeDrop Core</div>
+      <div class="dash-brand-card__eyebrow">System Admin Portal</div>
+    </div>
+  </div>
+
+  <nav class="dash-nav">
+    <a class="dash-nav__item dash-nav__item--admin is-active" href="dashboard.html">Dashboard</a>
+    <a class="dash-nav__item dash-nav__item--admin" href="create-hospital.html">Create Hospital</a>
+  </nav>
+
+  <div class="dash-session-card dash-session-card--footer">
+    <a class="dash-nav__item" href="#" id="go-logout-btn">Logout</a>
+  </div>
+</aside>
+
+<main class="dash-main">
+<header class="dash-topbar">
+  <div class="dash-topbar__group"><div class="dash-link-alert">Admin Console</div></div>
+  <div class="dash-admin-toolbar">
+    <div class="dash-user-chip dash-user-chip--brand">SystemAdmin</div>
+  </div>
+</header>
+
+<div class="dash-content">
+
+<section class="dash-page-header">
+  <div class="dash-stack-2">
+    <h1 class="dash-title-hero">Global Operations</h1>
+    <p class="dash-subtitle">Live system performance at a glance.</p>
+  </div>
+</section>
+
+<!-- Stats grid â€” filled by initGlobalOperations() in pages.js -->
+<section class="dash-grid dash-grid--4 dash-mb-24" id="sa-dashboard-root">
+  <article class="dash-card">
+    <div class="dash-card__body">
+      <div class="dash-eyebrow">Total Donors</div>
+      <div class="dash-stat-card__value" id="sa-donors">--</div>
+      <div class="dash-stat-indicator"><span id="sa-donors-ind"></span></div>
+    </div>
+  </article>
+  <article class="dash-card">
+    <div class="dash-card__body">
+      <div class="dash-eyebrow">Total Hospitals</div>
+      <div class="dash-stat-card__value" id="sa-hospitals">--</div>
+      <div class="dash-stat-indicator"><span id="sa-hospitals-ind"></span></div>
+    </div>
+  </article>
+  <article class="dash-card dash-card--alert">
+    <div class="dash-card__body">
+      <div class="dash-eyebrow">Total Requests</div>
+      <div class="dash-stat-card__value" id="sa-critical">--</div>
+      <div class="dash-stat-indicator"><span id="sa-requests-ind"></span></div>
+    </div>
+  </article>
+  <article class="dash-card">
+    <div class="dash-card__body">
+      <div class="dash-eyebrow">Bags Collected</div>
+      <div class="dash-stat-card__value" id="sa-response">--</div>
+      <div class="dash-stat-indicator"><span id="sa-bags-ind"></span></div>
+    </div>
+  </article>
+</section>
+
+<section class="dash-grid dash-grid--2 dash-mb-24" id="sa-analytics-wrap">
+  <article class="dash-card">
+    <div class="dash-card__body">
+      <div class="dash-row-between dash-mb-16">
+        <h2 class="dash-title-md">Regions Distribution</h2>
+        <span class="dash-badge dash-badge--normal">Live</span>
+      </div>
+      <div class="dash-chart-canvas-wrap"><canvas id="sa-regions-chart" aria-label="Requests by region chart"></canvas></div>
+    </div>
+  </article>
+  <article class="dash-card">
+    <div class="dash-card__body">
+      <div class="dash-row-between dash-mb-16">
+        <h2 class="dash-title-md">System Mix</h2>
+        <span class="dash-badge dash-badge--normal">Live</span>
+      </div>
+      <div class="dash-chart-canvas-wrap dash-chart-canvas-wrap--compact"><canvas id="sa-mix-chart" aria-label="System mix chart"></canvas></div>
+    </div>
+  </article>
+</section>
+
+<section class="dash-page-header dash-mt-32">
+  <div class="dash-row-between">
+    <div class="dash-stack-2">
+      <h2 class="dash-title-md">Hospital Management</h2>
+      <p class="dash-subtitle">Manage hospitals and access assignments.</p>
+    </div>
+    <div class="dash-actions">
+      <a class="dash-btn dash-btn--primary" href="create-hospital.html?create=1">Create Hospital</a>
+      <button class="dash-btn dash-btn--secondary is-hidden" id="sa-show-all-hospitals" type="button">Show all</button>
+    </div>
+  </div>
+</section>
+
+<section class="dash-card">
+  <div class="dash-table-wrap">
+    <table class="dash-table">
+      <thead>
+        <tr>
+          <th>Hospital Name</th>
+          <th>Location</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="sa-hospitals-tbody">
+        <tr>
+          <td colspan="4" class="dash-muted dash-table-message">
+            Loading hospitals...
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Employees Modal -->
+<dialog class="dash-modal" id="sa-emp-modal">
+  <div class="dash-modal__card dash-modal__card--wide">
+    <div class="dash-modal__header">
+      <h3 class="dash-modal__title" id="sa-emp-modal-title">Hospital Employees</h3>
+      <button class="dash-modal__close" id="sa-emp-modal-close" type="button">X</button>
+    </div>
+    <div class="dash-modal__body">
+      <div class="dash-table-wrap">
+        <table class="dash-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="sa-emp-tbody">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+</div><!-- /.dash-content -->
+</main>
+</div><!-- /.dash-app -->
+
+<script src="../../js/app.js"></script>
+<script src="../../js/api.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="../../js/pages.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var user = window.LifeDropApi && LifeDropApi.getCurrentUser();
+    if (!user || user.role !== 'SystemAdmin') {
+      window.location.replace('../auth/login.html');
+      return;
+    }
+    var logoutBtn = document.getElementById('go-logout-btn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        LifeDropApi.clearTokens();
+        window.location.href = '../../pages/auth/login.html';
+      });
+    }
+  });
+</script>
+</body>
+</html>
+

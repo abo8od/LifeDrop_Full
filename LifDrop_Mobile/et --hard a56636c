@@ -1,0 +1,55 @@
+[33m9a3f10a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdonation-request-ui[m[33m, [m[1;31morigin/features/home-ui[m[33m, [m[1;32mfeatures/home-ui[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33ma56636c[m[33m ([m[1;32mfeatures/donation-request-ui[m[33m)[m HEAD@{1}: checkout: moving from features/donation-request-ui to donation-request-ui
+[33ma56636c[m[33m ([m[1;32mfeatures/donation-request-ui[m[33m)[m HEAD@{2}: checkout: moving from donation-request-ui to features/donation-request-ui
+[33ma56636c[m[33m ([m[1;32mfeatures/donation-request-ui[m[33m)[m HEAD@{3}: commit: - Add map helper for location & distance.
+[33m9a3f10a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdonation-request-ui[m[33m, [m[1;31morigin/features/home-ui[m[33m, [m[1;32mfeatures/home-ui[m[33m)[m HEAD@{4}: checkout: moving from features/home-ui to donation-request-ui
+[33m9a3f10a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdonation-request-ui[m[33m, [m[1;31morigin/features/home-ui[m[33m, [m[1;32mfeatures/home-ui[m[33m)[m HEAD@{5}: commit: - change navigationBar color to whit color.
+[33m53a1d05[m HEAD@{6}: commit: - Bumped version to 1.2.11.
+[33mb2b61ee[m HEAD@{7}: commit: - Add Home screen and separate it to sections.
+[33m2561f4e[m HEAD@{8}: checkout: moving from features/custom-navigation-bar to features/home-ui
+[33me8a8b68[m[33m ([m[1;31morigin/features/custom-navigation-bar[m[33m, [m[1;32mfeatures/custom-navigation-bar[m[33m)[m HEAD@{9}: reset: moving to HEAD
+[33me8a8b68[m[33m ([m[1;31morigin/features/custom-navigation-bar[m[33m, [m[1;32mfeatures/custom-navigation-bar[m[33m)[m HEAD@{10}: commit: - Change Bottom Navigation Bar in light mode.
+[33m2561f4e[m HEAD@{11}: checkout: moving from features/home-ui to features/custom-navigation-bar
+[33m2561f4e[m HEAD@{12}: checkout: moving from features/custom-navigation-bar to features/home-ui
+[33m2561f4e[m HEAD@{13}: commit: - Use Curved Navigation Bar.
+[33m4557b84[m[33m ([m[1;31morigin/features/biometric-auth[m[33m, [m[1;32mfeatures/biometric-auth[m[33m)[m HEAD@{14}: checkout: moving from features/biometric-auth to features/custom-navigation-bar
+[33m4557b84[m[33m ([m[1;31morigin/features/biometric-auth[m[33m, [m[1;32mfeatures/biometric-auth[m[33m)[m HEAD@{15}: commit: - Fix the keyboard disappearing problem.
+[33m3adb00c[m HEAD@{16}: commit: - Handle localizations to biometric.
+[33m15b9b06[m HEAD@{17}: commit: - Handle fingerprint to login.
+[33mee0b899[m[33m ([m[1;31morigin/features/firebase-crashlytics[m[33m, [m[1;32mfeatures/firebase-crashlytics[m[33m)[m HEAD@{18}: Branch: renamed refs/heads/features/fingerprint to refs/heads/features/biometric-auth
+[33mee0b899[m[33m ([m[1;31morigin/features/firebase-crashlytics[m[33m, [m[1;32mfeatures/firebase-crashlytics[m[33m)[m HEAD@{20}: checkout: moving from features/firebase-crashlytics to features/fingerprint
+[33mee0b899[m[33m ([m[1;31morigin/features/firebase-crashlytics[m[33m, [m[1;32mfeatures/firebase-crashlytics[m[33m)[m HEAD@{21}: commit: - Add Firebase Crashlytics and use it to monitor Exceptions and API errors.
+[33m08a38fd[m[33m ([m[1;31morigin/features/auth[m[33m, [m[1;32mfeatures/auth[m[33m)[m HEAD@{22}: checkout: moving from features/auth to features/firebase-crashlytics
+[33m08a38fd[m[33m ([m[1;31morigin/features/auth[m[33m, [m[1;32mfeatures/auth[m[33m)[m HEAD@{23}: commit: - Use Fake API.
+[33m769c570[m HEAD@{24}: commit: - Add all Auth screens.
+[33m532f315[m[33m ([m[1;31morigin/features/onboarding-screens[m[33m, [m[1;32mfeatures/onboarding-screens[m[33m)[m HEAD@{25}: Branch: renamed refs/heads/features/auth-ui to refs/heads/features/auth
+[33m532f315[m[33m ([m[1;31morigin/features/onboarding-screens[m[33m, [m[1;32mfeatures/onboarding-screens[m[33m)[m HEAD@{27}: checkout: moving from features/onboarding-screens to features/auth-ui
+[33m532f315[m[33m ([m[1;31morigin/features/onboarding-screens[m[33m, [m[1;32mfeatures/onboarding-screens[m[33m)[m HEAD@{28}: commit: - Add OnboardingView with PageView navigation.
+[33mda45819[m[33m ([m[1;31morigin/features/localization[m[33m, [m[1;32mfeatures/localization[m[33m)[m HEAD@{29}: checkout: moving from features/localization to features/onboarding-screens
+[33mda45819[m[33m ([m[1;31morigin/features/localization[m[33m, [m[1;32mfeatures/localization[m[33m)[m HEAD@{30}: commit: - Added note to tester.
+[33m03d49c7[m HEAD@{31}: commit: - Added .arb translation files.
+[33m153643c[m[33m ([m[1;31morigin/features/splash-screen-ui[m[33m, [m[1;32mfeatures/splash-screen-ui[m[33m)[m HEAD@{32}: Branch: renamed refs/heads/features/onboarding-screens to refs/heads/features/localization
+[33m153643c[m[33m ([m[1;31morigin/features/splash-screen-ui[m[33m, [m[1;32mfeatures/splash-screen-ui[m[33m)[m HEAD@{34}: checkout: moving from features/splash-screen-ui to features/onboarding-screens
+[33m153643c[m[33m ([m[1;31morigin/features/splash-screen-ui[m[33m, [m[1;32mfeatures/splash-screen-ui[m[33m)[m HEAD@{35}: pull origin features/splash-screen-ui: Merge made by the 'ort' strategy.
+[33mb557206[m HEAD@{36}: checkout: moving from development to features/splash-screen-ui
+[33m6f0e100[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m HEAD@{37}: pull origin development: Fast-forward
+[33m2c4328e[m HEAD@{38}: checkout: moving from features/splash-screen-ui to development
+[33mb557206[m HEAD@{39}: commit: - Bumped version to 1.0.5.
+[33m5582221[m HEAD@{40}: commit: - Add Splash Screen with animation loading.
+[33m2c4328e[m HEAD@{41}: Branch: renamed refs/heads/features/splash-screen to refs/heads/features/splash-screen-ui
+[33m2c4328e[m HEAD@{43}: pull origin development --no-rebase: Fast-forward
+[33m43c1fac[m[33m ([m[1;31morigin/features/icon-app[m[33m, [m[1;32mfeatures/icon-app[m[33m)[m HEAD@{44}: checkout: moving from development to features/splash-screen
+[33m2c4328e[m HEAD@{45}: checkout: moving from features/splash-screen to development
+[33m43c1fac[m[33m ([m[1;31morigin/features/icon-app[m[33m, [m[1;32mfeatures/icon-app[m[33m)[m HEAD@{46}: checkout: moving from development to features/splash-screen
+[33m2c4328e[m HEAD@{47}: pull origin development: Fast-forward
+[33m3f29064[m HEAD@{48}: checkout: moving from features/splash-screen to development
+[33m43c1fac[m[33m ([m[1;31morigin/features/icon-app[m[33m, [m[1;32mfeatures/icon-app[m[33m)[m HEAD@{49}: checkout: moving from features/route-handle to features/splash-screen
+[33mb2ffa11[m[33m ([m[1;31morigin/features/route-handle[m[33m, [m[1;32mfeatures/route-handle[m[33m)[m HEAD@{50}: commit: - Add AppRouter and Routes to handel initial Screen and Navigate to other screens.
+[33m2111715[m[33m ([m[1;31morigin/features/error-handler[m[33m, [m[1;32mfeatures/error-handler[m[33m)[m HEAD@{51}: checkout: moving from features/error-handler to features/route-handle
+[33m2111715[m[33m ([m[1;31morigin/features/error-handler[m[33m, [m[1;32mfeatures/error-handler[m[33m)[m HEAD@{52}: commit: - Add API error handler, error model, and result wrapper.
+[33mfd81dd9[m[33m ([m[1;31morigin/features/shared-preferences-helper[m[33m, [m[1;32mfeatures/shared-preferences-helper[m[33m)[m HEAD@{53}: checkout: moving from features/shared-preferences-helper to features/error-handler
+[33mfd81dd9[m[33m ([m[1;31morigin/features/shared-preferences-helper[m[33m, [m[1;32mfeatures/shared-preferences-helper[m[33m)[m HEAD@{54}: commit: - Add Slash to assets paths in pubspec.yaml.
+[33me374c1d[m HEAD@{55}: checkout: moving from development to features/shared-preferences-helper
+[33m3f29064[m HEAD@{56}: checkout: moving from features/assets-structure to development
+[33m3b0a3b1[m[33m ([m[1;31morigin/features/assets-structure[m[33m, [m[1;32mfeatures/assets-structure[m[33m)[m HEAD@{57}: checkout: moving from features/shared-preferences-helper to features/assets-structure
+[33me374c1d[m HEAD@{58}: commit: - Add Shared Pref Helper to save local a

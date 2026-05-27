@@ -1,0 +1,11 @@
+**/.git
+**/.gitignore
+**/.vs
+**/*.user
+**/*.suo
+LifeDrop/**/bin
+LifeDrop/**/obj
+LifeDrop/**/app.log
+*.py
+*.patch
+*.http

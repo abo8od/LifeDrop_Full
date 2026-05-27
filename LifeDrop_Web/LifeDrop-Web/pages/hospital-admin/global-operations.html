@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Dashboard | LifeDrop Core</title>
+
+<link href="../../css/theme.css" rel="stylesheet"/>
+<link href="../../css/style.css" rel="stylesheet"/>
+<link href="../../css/theme-controls.css" rel="stylesheet"/>
+<link href="../../css/dashboard.css" rel="stylesheet"/>
+<link href="../../css/utilities.css" rel="stylesheet"/>
+<link href="../../css/responsive.css" rel="stylesheet"/>
+</head>
+
+<body class="light dashboard-body" data-page="global-operations">
+<div class="dash-app dash-app--admin">
+
+<aside class="dash-sidebar dash-sidebar--admin">
+  <div class="dash-brand-card">
+    <div class="brand-logo-box"><img src="../../assets/logo.png" alt="LifeDrop Logo" /></div>
+    <div>
+      <div class="dash-brand__title">LifeDrop Core</div>
+      <div class="dash-brand-card__eyebrow">System Admin Portal</div>
+    </div>
+  </div>
+
+  <nav class="dash-nav">
+    <a class="dash-nav__item dash-nav__item--admin is-active" href="global-operations.html">Dashboard</a>
+    <a class="dash-nav__item dash-nav__item--admin" href="hospital-management.html">Hospital Management</a>
+    <a class="dash-nav__item dash-nav__item--admin" href="audit-logs.html">Audit Logs</a>
+    <a class="dash-nav__item dash-nav__item--admin" href="global-settings.html">Global Settings</a>
+    <a class="dash-nav__item dash-nav__item--admin" href="employee-onboarding.html">Employees</a>
+  </nav>
+
+  <div class="dash-session-card dash-session-card--footer">
+    <a class="dash-nav__item" href="#" id="go-logout-btn">Logout</a>
+  </div>
+</aside>
+
+<main class="dash-main">
+<header class="dash-topbar">
+  <div class="dash-search dash-admin-search">
+    <span class="dash-search__icon" aria-hidden="true">S</span>
+    <input placeholder="System admin view..." type="text"/>
+  </div>
+  <div class="dash-admin-toolbar">
+    <div class="dash-user-chip dash-user-chip--brand">SystemAdmin</div>
+  </div>
+</header>
+
+<div class="dash-content">
+
+<section class="dash-page-header">
+  <div class="dash-stack-2">
+    <h1 class="dash-title-hero">Global Operations</h1>
+    <p class="dash-subtitle">Live system activity summary.</p>
+  </div>
+</section>
+
+<!-- Stats grid â€” filled by initGlobalOperations() in pages.js -->
+<section class="dash-grid dash-grid--4 dash-mb-24" id="global-operations-root">
+  <article class="dash-card">
+    <div class="dash-card__body">
+      <div class="dash-eyebrow">Total Donors</div>
+      <div class="dash-stat-card__value" id="go-donors">--</div>
+    </div>
+  </article>
+  <article class="dash-card">
+    <div class="dash-card__body">
+      <div class="dash-eyebrow">Total Hospitals</div>
+      <div class="dash-stat-card__value" id="go-hospitals">--</div>
+    </div>
+  </article>
+  <article class="dash-card dash-card--alert">
+    <div class="dash-card__body">
+      <div class="dash-eyebrow">Critical Requests</div>
+      <div class="dash-stat-card__value" id="go-critical">--</div>
+    </div>
+  </article>
+  <article class="dash-card">
+    <div class="dash-card__body">
+      <div class="dash-eyebrow">Response Rate</div>
+      <div class="dash-stat-card__value" id="go-response">--</div>
+    </div>
+  </article>
+</section>
+
+<!-- Activity feed + regions â€” filled by initGlobalOperations() -->
+<section class="dash-grid dash-layout-aside">
+  <article class="dash-card">
+    <div class="dash-card__body dash-stack-5">
+      <div>
+        <h2 class="dash-title-md">Live Activity Feed</h2>
+        <div class="dash-muted">Latest high-priority events.</div>
+      </div>
+      <div class="dash-feed-list" id="go-feed"></div>
+    </div>
+  </article>
+  <aside class="dash-card">
+    <div class="dash-card__body dash-stack-5">
+      <h2 class="dash-title-md">Active Regions</h2>
+      <div class="dash-inline-list" id="go-regions"></div>
+    </div>
+  </aside>
+</section>
+
+</div><!-- /.dash-content -->
+</main>
+</div><!-- /.dash-app -->
+
+<script src="../../js/app.js"></script>
+<script src="../../js/api.js"></script>
+<script src="../../js/pages.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var logoutBtn = document.getElementById('go-logout-btn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        LifeDropApi.clearTokens();
+        window.location.href = '../../pages/auth/login.html';
+      });
+    }
+  });
+</script>
+</body>
+</html>
+
+
